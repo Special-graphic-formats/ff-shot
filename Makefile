@@ -7,12 +7,12 @@ PREFIX ?= /usr/local
 DESTDIR ?= /
 
 # don't touch, maybe.
-BINS=ffshot
+BINS=ff-shot
 
 all: $(BINS)
 
-ffshot: ffshot.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o ffshot $^
+$(BINS): ffshot.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 install: $(BINS)
 	install -d $(DESTDIR)/$(PREFIX)/bin
